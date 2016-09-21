@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+    before_action do
+      @user = User.find(params[:user_id])
+    end
 
     def index
       @projects = Project.all
@@ -9,11 +12,14 @@ class ProjectsController < ApplicationController
     end
 
     def create
-      @project = project.new(project_params)
+      @project = Project.new(project_params)
+# example code for refernce
+      # @event.location = @location
+      @project.user = @user
 
       if @project.save
     # flahes need to  ne added in the layout too
-        redirect_to  user_project_path
+        redirect_to [@user, @project]
         # notice: "Account succesfully created"
       else
         # notice: "Account not created"
