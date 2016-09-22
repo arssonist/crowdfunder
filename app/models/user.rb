@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  # has_many :pledged_projects, through: :pledges
+  authenticates_with_sorcery!
   has_many :projects
 end
