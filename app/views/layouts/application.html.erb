@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Crowdfunder</title>
+    <title>Fundastic Crowdfunder</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,28 @@
   </head>
 
   <body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Fundastic Crowdfunder", "/", class: "navbar-brand", id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home",   '#' %></li>
+          <li><%= link_to "Log in", '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
     <%= yield %>
+  </div>
+
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text pull-left">©2016 Fundastic Inc.</p>
+  </div>
+
+
   </body>
+
 </html>
