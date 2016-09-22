@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+
+  # To have the @user object available in the ProjectsController
     before_action do
       @user = User.find(params[:user_id])
     end
