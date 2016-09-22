@@ -11,12 +11,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-  # flahes need to  ne added in the layout too
-      redirect_to root_url
-      # notice: "Account succesfully created"
-    else
-      # notice: "Account not created"
-      render :new
+        redirect_to root_url
+      else
+        render :new
     end
 
   end

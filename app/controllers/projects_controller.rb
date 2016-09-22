@@ -13,16 +13,13 @@ class ProjectsController < ApplicationController
 
     def create
       @project = Project.new(project_params)
-# example code for refernce
+      # example code for reference
       # @event.location = @location
       @project.user = @user
 
       if @project.save
-    # flahes need to  ne added in the layout too
         redirect_to [@user, @project]
-        # notice: "Account succesfully created"
       else
-        # notice: "Account not created"
         render :new
       end
 
