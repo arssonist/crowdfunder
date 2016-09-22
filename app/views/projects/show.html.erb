@@ -2,11 +2,25 @@
 <p>Find me in app/views/projects/show.html.erb</p>
 
 
-<h3> <%= @project.title %>  </h3>
+<h3> Name: <%= @project.title %>  </h3>
 
-<h3> <%= @project.description %>  </h3>
+<h3> Description: <%= @project.description %>  </h3>
 
 
-<h3> $<%= @project.goal_amount %>  </h3>
+<h3> Goal Amount: $<%= @project.goal_amount %>  </h3>
 
-<h3> <%= @project.deadline %>  </h3>
+
+<h3> Pledged So Far: $<%= @project.pledges.sum(:pledged_amount) %>  </h3>
+
+<h3> Deadline: <%= @project.deadline %>  </h3>
+
+
+<%= form_for [@user, @project, @pledge] do |f| %>
+
+  <div class='field'>
+    <%= f.label :pledged_amount %>
+    <%= f.number_field :pledged_amount%>
+  </div>
+
+  <%= f.submit %>
+<% end %>
