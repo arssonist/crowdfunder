@@ -29,10 +29,10 @@ class ProjectsController < ApplicationController
 
     def show
       @project = Project.find(params[:id])
-      
+      @pledge = Pledge.new
     end
 
     def project_params
-      params.require(:project).permit(:title, :description, :amount,:deadline)
+      params.require(:project).permit(:title, :description, :goal_amount, :deadline)
     end
   end
