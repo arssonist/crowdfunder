@@ -9,4 +9,13 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :name,  format: { with: /\A[a-zA-Z]+\z/, alert: "only allows letters" }
 
+
+
+
+
+
+
+
+
+
 end
