@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :pledges
+  
   has_many :projects
 
     validates :email, uniqueness: true
@@ -8,5 +10,6 @@ class User < ApplicationRecord
     validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
     validates :name, presence: true
     validates :name,  format: { with: /\A[a-zA-Z]+\z/, alert: "only allows letters" }
+
 
 end
