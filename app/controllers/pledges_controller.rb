@@ -2,7 +2,7 @@ class PledgesController < ApplicationController
 
   before_action do
     @project = Project.find(params[:project_id])
-    @user = User.find(params[:user_id])
+      # User.find(params[:user_id])
   end
 
 
@@ -15,11 +15,11 @@ class PledgesController < ApplicationController
 
   def create
     @pledge = Pledge.new(pledge_params)
-    @pledge.user = @user
+    @pledge.user = current_user
     @pledge.project = @project
 
     if @pledge.save!
-      redirect_to [@user, @project]
+      redirect_to @project
       flash[:notice] = "Pledge succesfully created."
     else
       flash[:error] = "Sorry, pledge not succesful."

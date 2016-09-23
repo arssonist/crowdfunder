@@ -35,13 +35,13 @@
       <!-- DIAPLAYS UNDER NAV BAR - if user is logged in or not -->
       <% if current_user %>
       <div class="white">
-        Logged in as <%= current_user.email %>
+        Logged in as &nbsp; <%= link_to current_user.name, current_user %>
       </div>
         <% end %>
         <!--  -->
     </div>
 
-      
+
 
     </div>
   </header>

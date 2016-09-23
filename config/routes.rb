@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  root 'users#new'
+  root 'projects#index'
 
-  resources :users do
-    resources :projects do
-      resources :pledges
-    end
+  resources :users
+
+  resources :projects do
+    resources :pledges
   end
-
-  resources :projects
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"

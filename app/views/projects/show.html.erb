@@ -13,10 +13,13 @@
 
 <%= form_for [@user, @project, @pledge] do |f| %>
 
-  <div class='field'>
-    <%= f.label :pledged_amount %>
-    <%= f.number_field :pledged_amount%>
-  </div>
+  <div class="row">
 
-  <%= f.submit %>
+    <div class='form-group col-lg-3'>
+    <%= f.label :pledged_amount %>
+    <%= f.number_field :pledged_amount, class: "form-control" %>
+  </div>
+</div>
+
+  <%= f.submit class:"btn btn-primary" %>
 <% end %>
